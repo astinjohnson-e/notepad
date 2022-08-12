@@ -1,0 +1,25 @@
+<h1>{{title}}</h1>
+<form [formGroup]="currencyForm">
+    <label>From </label>
+    <select formControlName="from">
+        <option name="From" *ngFor="let item of code; let index=index;" value={{item}} >
+            {{item}} - {{country[index]}}</option>
+    </select>
+    <br>
+    <br>
+    <label>To </label>
+    <select formControlName="to">
+        <option name="To" *ngFor="let item of code; let index=index;" value={{item}} >
+            {{item}} - {{country[index]}}</option>
+    </select>
+    <br>
+    <br>
+    <label>Amount </label>
+    <input formControlName="amount"  type="text" name="amount" placeholder="Enter amount.." />
+    <div *ngIf="amount?.errors?.['pattern'] " style="color: red;" >
+        Please enter a amount.
+    </div>
+    <button (click)="form()">Convert</button>
+</form>
+<h2>Conversion Amount : </h2>{{value}}
+

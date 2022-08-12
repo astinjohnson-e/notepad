@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+<form [formGroup]="notesForm" (ngSubmit)="noteForm()">
+    <label>Title </label>
+    <input formControlName="title"  type="text" value="{{value_title}}" placeholder="Enter Title.." />
+    <br>
+    <br>
+    <label>Content</label>
+    <br>
+    <textarea style="resize: none;" rows="5" cols="100"  formControlName="content" value="{{value_content}}"  placeholder="Enter content.." ></textarea>
+    <br>
+    <br>
+    <button  [disabled]="notesForm.invalid" >Submit</button>
+</form>
+<button (click)="update()" [hidden]=updates >Update</button>
+<app-output (messageEvent) = "receiveIndex($event)" ></app-output>
+

@@ -1,0 +1,24 @@
+<h1>{{title}}</h1>
+<button (click)="restoreAll()">Restore All</button>
+<button (click)="clear()">Clear All</button>
+<table style= " border:1px solid black; ">
+    <tr style= " border:1px solid black;">
+        <th style= " border:1px solid black; width: 5cm;">Note Si.No.</th>
+        <th style= " border:1px solid black; width: 15cm; ">Title</th>
+        <th style= " border:1px solid black; width: 40cm ">Content</th>
+        <th style= " border:1px solid black;">Delete</th>
+        <th style= " border:1px solid black;">Clear</th>
+    </tr>
+</table>
+<div *ngFor="let info of bin; let index = index">
+    <table style= " border:1px solid black; ">
+        <tr style= " border:1px solid black;">
+            <td style= " border:1px solid black; width: 5cm; ">Note {{index}} :</td>
+            <td style= " border:1px solid black; width: 15cm;">{{info[0]}}</td>
+            <td style= " border:1px solid black; width: 40cm;">{{info[1]}}</td>
+            <td style= " border:1px solid black;"><button (click)="restore(index)">Restore</button></td>
+            <td style= " border:1px solid black;"><button (click)="delete(index)">Clear</button></td>
+        </tr>
+    </table>
+</div>
+
